@@ -62,6 +62,13 @@ def mark_entry_as_completed(num):
     del task
     delete_entry(num)
 
+def mark_entry_as_incomplete(num):
+    task = COMPLETED_LIST[num-1]
+    task.change_num(len(TODO_LIST)+1)
+    TODO_LIST.append(task)
+    del task
+    delete_entry_completed(num)
+
 def add_entry(task):
     TODO_LIST.append(Entry(len(TODO_LIST)+1,task))
 
@@ -114,7 +121,8 @@ if __name__ == "__main__":
     parser.add_argument('-a','--add',dest='task',help='add a new task',type=str,nargs='+')
     parser.add_argument('-d','--delete',dest='delete',help='delete an existing tasks',type=int,nargs='+')
     parser.add_argument('-D','--delete-completed',dest='delete_completed',help='delete an existing completed tasks',type=int,nargs='+')
-    parser.add_argument('-m','--mark',dest='mark',help='mark task as completed',type=int,nargs='+',metavar='NUM')
+    parser.add_argument('-m','--mark',dest='mark',help='mark tasks as completed',type=int,nargs='+',metavar='NUM')
+    parser.add_argument('-u','--unmark',dest='unmark',help='return tasks to to-do list',type=int,nargs='+',metavar='NUM')
     parser.add_argument('-c','--change',dest='change',help='change an existing tasks',nargs=2,metavar=('NUM','"TASK"'))
     parser.add_argument('-l','--list-completed',dest='completed',help='list completed tasks',action='store_true')
     parser.add_argument('-w','--wipe',dest='wipe',help='-w - wipe completed list, -ww wipe all',action='count',default=0)
@@ -154,6 +162,15 @@ if __name__ == "__main__":
             mark_entry_as_completed(int(i))
         save_to_json(COMPLETED_LIST,True)
         save_to_json(TODO_LIST)
+    if args.unmark:
+        if not COMPLETED_LIST:
+            print("Nothing to return")
+            parser.exit()
+        print(args.unmark)
+        # for i in sorted(args.unmark,reverse=True):
+        #     mark_entry_as_incomplete(int(i))
+        # save_to_json(TODO_LIST)
+        # save_to_json(COMPLETED_LIST,True)
     if args.completed:
         if COMPLETED_LIST:
             print(f'#{"=".center(25,"=")}#')

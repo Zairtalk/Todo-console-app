@@ -25,10 +25,10 @@ options:
 <br> <br>
   -u NUM [NUM ...], --unmark NUM [NUM ...]  
                         return tasks to to-do list
-<br><br>  
+<br><br>
   -c NUM "TASK", --change NUM "TASK"  
                         change an existing tasks
 <br><br>
-  -l, --list-completed  list completed tasks  
+  -l, --list-completed  list completed tasks
 <br><br>
   -w, --wipe            -w - wipe completed list, -ww wipe all

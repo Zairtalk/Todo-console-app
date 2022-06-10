@@ -29,6 +29,7 @@ options:
   -c NUM "TASK", --change NUM "TASK"  
                         change an existing tasks
 <br><br>
-  -l, --list-completed  list completed tasks
+  -l, --list-completed  
+list completed tasks
 <br><br>
   -w, --wipe            -w - wipe completed list, -ww wipe all

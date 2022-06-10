@@ -1,9 +1,9 @@
 # Todo app
 
-Usage: todo-app.py [-h] [-a TASK [TASK ...]] [-d DELETE [DELETE ...]] [-D DELETE_COMPLETED [DELETE_COMPLETED ...]]
+Usage: **todo-app.py** [-h] [-a TASK [TASK ...]] [-d DELETE [DELETE ...]] [-D DELETE_COMPLETED [DELETE_COMPLETED ...]]
                    [-m NUM [NUM ...]] [-u NUM [NUM ...]] [-c NUM "TASK"] [-l] [-w]
 
-<<p>>To-do list application that allows you to add, edit, and mark tasks as completed. Default output without arguments:</<p>>
+<p>To-do list application that allows you to add, edit, and mark tasks as completed. Default output without arguments:</p>
 contents of todo-list. Default path to save list is $HOME/.local/todo-app
 <br>  
 options:

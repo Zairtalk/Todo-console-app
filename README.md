@@ -1,5 +1,7 @@
 # Todo app
-Usage: todo-app.py [-h] [-a TASK [TASK ...]] [-d DELETE [DELETE ...]]
+
+Usage: 
+todo-app.py [-h] [-a TASK [TASK ...]] [-d DELETE [DELETE ...]]
                    [-D DELETE_COMPLETED [DELETE_COMPLETED ...]] [-m NUM [NUM ...]] [-c NUM "TASK"]
                    [-l] [-w]
 

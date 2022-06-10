@@ -32,4 +32,5 @@ options:
   -l, --list-completed  
 list completed tasks
 <br><br>
-  -w, --wipe            -w - wipe completed list, -ww wipe all
+  -w, --wipe  
+-w - wipe completed list, -ww wipe all

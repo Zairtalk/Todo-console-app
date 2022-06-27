@@ -179,11 +179,10 @@ if __name__ == "__main__":
         if not COMPLETED_LIST:
             print("Nothing to return")
             parser.exit()
-        print(args.unmark)
-        # for i in sorted(args.unmark,reverse=True):
-        #     mark_entry_as_incomplete(int(i))
-        # save_to_json(TODO_LIST)
-        # save_to_json(COMPLETED_LIST,True)
+        for i in sorted(args.unmark,reverse=True):
+            mark_entry_as_incomplete(int(i))
+        save_to_json(TODO_LIST)
+        save_to_json(COMPLETED_LIST,True)
     if args.completed:
         if COMPLETED_LIST:
             print(f'#{"=".center(25,"=")}#')

@@ -41,33 +41,46 @@ COMPLETED_LIST = []
 DATA_DIR = p.home().joinpath('.local','todo-app')
 
 def delete_entry(num):
-    del TODO_LIST[num-1]
-    for i in TODO_LIST:
-        if i.num() < num:
-            continue
-        else:
-            i.subtract_num()
+    try:
+        del TODO_LIST[num-1]
+        for i in TODO_LIST:
+            if i.num() < num:
+                continue
+            else:
+                i.subtract_num()
+    except IndexError:
+        print(f"There isn't task # {num}")
+
 def delete_entry_completed(num):
-    del COMPLETED_LIST[num-1]
-    for i in COMPLETED_LIST:
-        if i.num() < num:
-            continue
-        else:
-            i.subtract_num()
+    try:
+        del COMPLETED_LIST[num-1]
+        for i in COMPLETED_LIST:
+            if i.num() < num:
+                continue
+            else:
+                i.subtract_num()
+    except IndexError:
+        print(f"There isn't task # {num}")
 
 def mark_entry_as_completed(num):
-    task = TODO_LIST[num-1]
-    task.change_num(len(COMPLETED_LIST)+1)
-    COMPLETED_LIST.append(task)
-    del task
-    delete_entry(num)
+    try:
+        task = TODO_LIST[num-1]
+        task.change_num(len(COMPLETED_LIST)+1)
+        COMPLETED_LIST.append(task)
+        del task
+        delete_entry(num)
+    except IndexError:
+        print(f"There isn't task # {num}")
 
 def mark_entry_as_incomplete(num):
-    task = COMPLETED_LIST[num-1]
-    task.change_num(len(TODO_LIST)+1)
-    TODO_LIST.append(task)
-    del task
-    delete_entry_completed(num)
+    try:
+        task = COMPLETED_LIST[num-1]
+        task.change_num(len(TODO_LIST)+1)
+        TODO_LIST.append(task)
+        del task
+        delete_entry_completed(num)
+    except IndexError:
+        print(f"There isn't task # {num}")
 
 def add_entry(task):
     TODO_LIST.append(Entry(len(TODO_LIST)+1,task))
